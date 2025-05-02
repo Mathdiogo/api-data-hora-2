@@ -6,7 +6,7 @@ const app = express();
 
 app.use(cors());  // Corrigido de cons() para cors()
 
-app.get('/api/date', (req, res) => {
+app.get('/', (req, res) => {
     res.json({
         date: new Date().toLocaleString('pt-BR', {
             timeZone: 'America/Sao_Paulo',
