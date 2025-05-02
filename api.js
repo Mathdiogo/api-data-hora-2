@@ -5,12 +5,20 @@ const app = express();
 
 app.use(cors());  // Corrigido de cons() para cors()
 
-app.get('/', (req, res) => {
+app.get('/api/date', (req, res) => {
     res.json({
-        date: new Date().toLocaleString('pt-BR'),  // Corrigido tolocaleString para toLocaleString
+        date: new Date().toLocaleString('pt-BR', {
+            timeZone: 'America/Sao_Paulo',
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        }),
         status: 'API no Render funcionando!'
     });
-});  // Removidas as chaves extras
+});
 
 // Porta dinâmica para o Render
 const PORT = process.env.PORT || 3000;
